@@ -1,0 +1,38 @@
+
+@if (totalPages > 1) {
+<nav class="pagination-nav">
+  <ul class="pagination-list">
+    <li>
+      <a
+        class="page-item"
+        (click)="selectPage(currentPage - 1)"
+        [class.disabled]="currentPage === 1"
+      >
+        &laquo;
+      </a>
+    </li>
+
+    @for (page of pages; track page) {
+    <li>
+      <a
+        class="page-item"
+        (click)="selectPage(page)"
+        [class.active]="page === currentPage"
+      >
+        {{ page }}
+      </a>
+    </li>
+    }
+
+    <li>
+      <a
+        class="page-item"
+        (click)="selectPage(currentPage + 1)"
+        [class.disabled]="currentPage === totalPages"
+      >
+        &raquo;
+      </a>
+    </li>
+  </ul>
+</nav>
+}

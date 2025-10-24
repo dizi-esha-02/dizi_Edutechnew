@@ -1,0 +1,22 @@
+
+<article class="profile-card">
+  @if (profile.status === 'Active') {
+  <span class="status-badge active">Active</span>
+  } @else {
+  <span class="status-badge inactive">Inactive</span>
+  }
+
+  <img [src]="profile.avatarUrl" [alt]="profile.name" class="profile-avatar" />
+  <h3 class="profile-name">{{ profile.name }}</h3>
+  <p class="profile-role">{{ profile.role }}</p>
+
+  <div class="profile-rating">
+    <i class="fa-solid fa-star"></i>
+    <span>{{ profile.rating }}</span>
+  </div>
+
+  <div class="profile-actions">
+    <a href="#" class="btn btn-profile-view">View</a>
+    <a href="#" class="btn btn-profile-edit">Edit</a>
+  </div>
+</article>

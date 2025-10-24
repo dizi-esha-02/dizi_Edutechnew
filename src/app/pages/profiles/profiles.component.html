@@ -1,0 +1,46 @@
+<div class="page-container">
+  <!-- Page Header (no changes here) -->
+  <div class="page-header">
+    <h1>Student Profiles</h1>
+    <div class="header-controls">
+      <div class="search-bar">
+        <i class="fa-solid fa-search"></i>
+        <input type="text" placeholder="Search for students..." />
+      </div>
+      <!-- Filter Buttons -->
+      <div class="filter-buttons">
+        <button class="filter-btn active">All</button>
+        <button class="filter-btn">Active</button>
+        <button class="filter-btn">Inactive</button>
+      </div>
+      <button class="btn btn-primary">
+        <i class="fa-solid fa-user-plus"></i>
+        Add Student
+      </button>
+    </div>
+  </div>
+
+  <!-- Profile Grid -->
+  <div class="profile-grid">
+    <!-- 
+      *** CHANGED HERE ***
+      We now loop over 'displayedProfiles' (the 6 items)
+      instead of the full list.
+    -->
+    @for (profile of displayedProfiles; track profile.id) {
+    <app-profile-card [profile]="profile"></app-profile-card>
+    }
+  </div>
+
+  <!-- 
+    *** NEW SECTION ADDED ***
+    This is our new pagination component.
+    We are binding its inputs and outputs to our variables.
+  -->
+  <app-pagination
+    [totalItems]="totalItems"
+    [itemsPerPage]="itemsPerPage"
+    [currentPage]="currentPage"
+    (pageChange)="onPageChange($event)"
+  ></app-pagination>
+</div>

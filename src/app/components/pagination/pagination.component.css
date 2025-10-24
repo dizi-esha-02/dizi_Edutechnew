@@ -1,0 +1,57 @@
+.pagination-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.pagination-list {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  overflow: hidden; /* Ensures rounded corners on children */
+}
+
+.page-item {
+  display: block;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  cursor: pointer;
+  border-left: 1px solid var(--border-color);
+  transition: all 0.2s ease-in-out;
+  user-select: none; /* Prevents text selection on click */
+}
+
+/* No border on the first item */
+li:first-child .page-item {
+  border-left: none;
+}
+
+.page-item:hover {
+  background-color: var(--bg-color);
+}
+
+/* Active page style */
+.page-item.active {
+  background-color: var(--primary-color);
+  color: #fff;
+  font-weight: 600;
+  cursor: default;
+}
+
+/* Disabled button style */
+.page-item.disabled {
+  color: var(--border-color);
+  cursor: not-allowed;
+  background-color: var(--card-bg);
+}
+
+.page-item.disabled:hover {
+  background-color: var(--card-bg);
+}
