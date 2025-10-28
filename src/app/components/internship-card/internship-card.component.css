@@ -1,25 +1,26 @@
+/* -- Fixed Value Card Design -- */
 .internship-card {
   display: flex;
   flex-direction: column;
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
+  background-color: #ffffff; 
+  border: 1px solid #e5e7eb;
+  border-radius: 8px; 
   transition: all 0.3s ease;
-  overflow: hidden; /* Ensures clean borders */
+  overflow: hidden;
 }
 
 .internship-card:hover {
-  border-color: var(--primary-color);
-  box-shadow: var(--shadow-md);
+  border-color: #364aa4; 
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* Medium shadow */
   transform: translateY(-4px);
 }
 
 /* -- 1. Card Header -- */
 .card-header {
   display: flex;
-  align-items: flex-start; /* Aligns items to the top */
-  gap: 1.5rem;
-  padding: 1.5rem;
+  align-items: flex-start;
+  gap: 24px; 
+  padding: 24px; 
 }
 
 .company-logo {
@@ -29,25 +30,25 @@
 .company-logo img {
   width: 60px;
   height: 60px;
-  border-radius: var(--border-radius);
-  border: 1px solid var(--border-color);
+  border-radius: 8px; 
+  border: 1px solid #e5e7eb; 
 }
 
 .company-info {
-  flex-grow: 1; /* Takes all available space */
+  flex-grow: 1;
 }
 
 .card-title {
-  font-size: 1.25rem; /* 20px */
+  font-size: 1.25rem; 
   font-weight: 600;
-  color: var(--text-color);
+  color: #111827;
   margin: 0 0 0.25rem 0;
 }
 
 .card-company {
   font-size: 1rem;
   font-weight: 500;
-  color: var(--text-muted);
+  color: #6b7280; 
   margin: 0;
 }
 
@@ -59,72 +60,73 @@
 .btn-apply {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #fff;
-  background-color: var(--primary-color);
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--border-radius);
+  color: #ffffff;
+  background-color: #364aa4; 
+  padding: 12px 24px; 
+  border-radius: 8px;
   text-align: center;
   transition: all 0.3s ease;
   border: none;
 }
 
 .btn-apply:hover {
-  background-color: var(--primary-hover);
-  box-shadow: var(--shadow-sm);
+  background-color: #2a3b8a; 
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); 
 }
 
 /* -- 2. Card Body (Tags) -- */
 .card-body {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  padding: 1.25rem 1.5rem;
-  background-color: var(--bg-color); /* Slight contrast background */
-  border-top: 1px solid var(--border-color);
+  gap: 12px; 
+  padding: 20px 24px; 
+  background-color: #f9fafb; 
+  border-top: 1px solid #e5e7eb; 
 }
 
 .info-tag {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  gap: 8px;
+  padding: 8px 16px; 
   font-size: 0.85rem;
   font-weight: 500;
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
-  color: var(--text-muted);
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb; 
+  border-radius: 8px; 
+  color: #6b7280;
 }
 
 .info-tag i {
-  color: var(--primary-color);
+  color: #364aa4; 
   font-size: 0.9rem;
 }
 
 /* Specific colors for the 'Type' tag */
 .info-tag.remote {
-  color: #2563eb;
-  background-color: #dbeafe;
-  border-color: #bfdbfe;
+  color: #2563eb; 
+  background-color: #dbeafe; 
+  border-color: #bfdbfe; 
 }
 .info-tag.remote i {
-  color: #2563eb;
+  color: #2563eb; 
 }
 
 .info-tag.on-site {
   color: #059669;
-  background-color: #d1fae5;
-  border-color: #a7f3d0;
+  background-color: #d1fae5; 
+  border-color: #a7f3d0; 
 }
 .info-tag.on-site i {
-  color: #059669;
+  color: #059669; 
 }
 
 .info-tag.hybrid {
   color: #d97706;
-  background-color: #fef3c7;
-  border-color: #fde68a;
+  background-color: #fef3c7; 
+  border-color: #fde68a; 
 }
 .info-tag.hybrid i {
-  color: #d97706;
+  color: #d97706; 
 }
+
