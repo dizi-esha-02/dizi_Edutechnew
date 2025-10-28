@@ -2,7 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0;
+  padding: 24px 0 8px 0; 
+  margin-top: 16px;
 }
 
 .pagination-list {
@@ -10,22 +11,24 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-sm);
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  overflow: hidden; /* Ensures rounded corners on children */
+  border-radius: 12px; 
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* Medium shadow */
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb; 
+  overflow: hidden; 
 }
 
 .page-item {
   display: block;
-  padding: 0.75rem 1rem;
-  font-weight: 500;
-  color: var(--text-color);
+  padding: 12px 17.6px; 
+  font-weight: 600; 
+  color: #6b7280; 
   cursor: pointer;
-  border-left: 1px solid var(--border-color);
+  border-left: 1px solid #e5e7eb; 
   transition: all 0.2s ease-in-out;
-  user-select: none; /* Prevents text selection on click */
+  user-select: none;
+  min-width: 50px;
+  text-align: center;
 }
 
 /* No border on the first item */
@@ -34,24 +37,28 @@ li:first-child .page-item {
 }
 
 .page-item:hover {
-  background-color: var(--bg-color);
+  background-color: #f9fafb;
+  color: #364aa4; 
 }
 
 /* Active page style */
 .page-item.active {
-  background-color: var(--primary-color);
-  color: #fff;
-  font-weight: 600;
+  background-color: #364aa4; 
+  color: #ffffff; 
+  font-weight: 700;
   cursor: default;
+  border-color: #364aa4; 
 }
 
 /* Disabled button style */
 .page-item.disabled {
-  color: var(--border-color);
+  color: #e5e7eb; 
   cursor: not-allowed;
-  background-color: var(--card-bg);
+  background-color: #ffffff; 
 }
 
 .page-item.disabled:hover {
-  background-color: var(--card-bg);
+  background-color: #ffffff; 
+  color: #e5e7eb; 
 }
+
