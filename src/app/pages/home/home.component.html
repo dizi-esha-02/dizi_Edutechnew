@@ -1,32 +1,53 @@
-
 <div class="home-container">
-  <h1>Welcome to DiziEdutech Hub</h1>
-  <p class="subtitle">
-    Manage your courses and student profiles with ease.
-  </p>
+  <!-- Welcome Header -->
+  <header class="welcome-header">
+    <h1>Welcome to DiziEduTech Platform</h1>
+    <p>Manage courses, profiles, internships, and hackathons all in one place.</p>
+  </header>
 
-  <div class="cta-buttons">
-    <a routerLink="/courses" class="btn btn-primary">
-      <i class="fa-solid fa-book-open"></i>
-      Explore Courses
-    </a>
-    <a routerLink="/profiles" class="btn btn-secondary">
-      <i class="fa-solid fa-users"></i>
-      Manage Profiles
-    </a>
-  </div>
-
-  <div class="quick-actions">
-    <h3>Quick Actions</h3>
-    <div class="action-cards">
-      <div class="action-card">
-        <i class="fa-solid fa-plus"></i>
-        <span>Add New Course</span>
-      </div>
-      <div class="action-card">
-        <i class="fa-solid fa-user-plus"></i>
-        <span>Add New Profile</span>
-      </div>
+  <!-- CTA Cards Section -->
+  <section class="cta-section">
+    <h2>Quick Access</h2>
+    <div class="cta-grid">
+      <!-- Courses Card -->
+      <a routerLink="/courses" class="cta-card courses">
+        <i class="fa-solid fa-book-open"></i>
+        <h3>Courses</h3>
+        <p>Manage & view courses</p>
+      </a>
+      <!-- Profiles Card -->
+      <a routerLink="/profiles" class="cta-card profiles">
+        <i class="fa-solid fa-users"></i>
+        <h3>Profiles</h3>
+        <p>Manage student profiles</p>
+      </a>
+      <!-- Internships Card -->
+      <a routerLink="/internships" class="cta-card internships">
+        <i class="fa-solid fa-briefcase"></i>
+        <h3>Internships</h3>
+        <p>Explore opportunities</p>
+      </a>
+      <!-- Hackathons Card -->
+      <a routerLink="/hackathons" class="cta-card hackathons">
+        <i class="fa-solid fa-laptop-code"></i>
+        <h3>Hackathons</h3>
+        <p>Join challenges</p>
+      </a>
     </div>
-  </div>
+  </section>
+
+  <!-- Featured Courses Section -->
+  @if (featuredCourses.length > 0) {
+  <section class="featured-section">
+    <h2>Featured Courses</h2>
+    <div class="featured-grid">
+      <!-- Loop through the first 3 courses -->
+      @for (course of featuredCourses; track course.id) {
+      <app-course-card [course]="course"></app-course-card> <!-- Make sure app-course-card exists and is declared -->
+      }
+    </div>
+  </section>
+  }
+
 </div>
+

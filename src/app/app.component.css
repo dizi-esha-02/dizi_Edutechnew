@@ -1,90 +1,80 @@
-/* NEW: Updated colors for a more modern, professional feel.
-  We are using a dark charcoal instead of the old blue.
-*/
-:root {
-  --sidebar-bg: #1f2937; /* Dark Gray */
-  --sidebar-text: #d1d5db; /* Lighter gray for text */
-  --sidebar-text-hover: #ffffff;
-  --sidebar-active-bg: #374151; /* Slightly lighter gray for active */
-  
-  --primary-color: #3b82f6; /* A more vibrant blue */
-  --header-bg: #ffffff;
-  --card-bg: #ffffff;
-  --bg-color: #f9fafb; /* A cleaner, lighter gray background */
-  
-  --text-color: #111827;
-  --border-color: #e5e7eb;
-  
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --border-radius: 8px;
-}
-
 .app-container {
   display: flex;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  background-color: var(--bg-color);
 }
 
-/* Sidebar */
+/* 1. New Light Sidebar Styling */
 .sidebar {
-  width: 240px;
+  width: var(--sidebar-width);
   background-color: var(--sidebar-bg);
-  color: var(--sidebar-text);
-  padding: 1.5rem 1rem; /* Added padding to the whole sidebar */
-  
-  /* NEW: Use flexbox to space out main nav and footer nav */
+  border-right: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  
+  padding: 1.5rem;
   flex-shrink: 0;
   transition: width 0.3s ease;
 }
 
-/* NEW: Brand/Logo styling */
-.sidebar-brand {
+.sidebar-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #ffffff;
-  padding: 0 0.5rem 1.5rem 0.5rem; /* Padding to match nav links */
-  border-bottom: 1px solid var(--sidebar-active-bg);
-  margin-bottom: 1rem;
-}
-
-.sidebar-brand i {
-  width: 24px;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
+.logo-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+}
+
+.brand-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-top: 0.75rem;
+}
+
+.brand-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Navigation Links */
 .sidebar-nav {
   list-style: none;
   padding: 0;
   margin: 0;
+  flex-grow: 1; /* Pushes footer down */
 }
-
 
 .sidebar-nav li a {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.8rem 1rem; 
-  color: white;
+  gap: 1rem;
+  padding: 0.9rem 1.25rem;
+  border-radius: var(--border-radius);
+  color: var(--text-muted);
   font-weight: 500;
-  border-radius: var(--border-radius); 
-  transition: all 0.2s ease;
-  margin-bottom: 0.25rem; 
+  transition: all 0.3s ease;
+  margin-bottom: 0.5rem;
 }
 
+.sidebar-nav li a i {
+  width: 22px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* New "Pill" Active Style */
 .sidebar-nav li a:hover {
-  background-color: var(--sidebar-active-bg);
-  color: skyblue;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
-
 
 .sidebar-nav li a.active {
   background-color: var(--primary-color);
@@ -93,29 +83,28 @@
   box-shadow: var(--shadow-sm);
 }
 
-.sidebar-nav li a i {
-  width: 20px;
-  text-align: center;
-  font-size: 1rem;
-}
-
-
+/* Sidebar Footer */
 .sidebar-footer {
-  border-top: 1px solid var(--sidebar-active-bg);
   padding-top: 1rem;
-}
-.sidebar-footer li a {
-   color:white;
-  opacity: 0.7;
-}
-.sidebar-footer li a:hover {
-  opacity: 1;
-  background-color: var(--sidebar-active-bg);
-  color: skyblue;
+  border-top: 1px solid var(--border-color);
 }
 
+.sidebar-footer a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.25rem;
+  border-radius: var(--border-radius);
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.sidebar-footer a:hover {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
 
-/* Main Content Wrapper */
+/* 2. Main Content Area */
 .main-content {
   flex: 1;
   display: flex;
@@ -128,26 +117,23 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2.5rem; 
+  padding: 0 2rem;
   background-color: var(--header-bg);
   border-bottom: 1px solid var(--border-color);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.05);
-  height: 70px;
+  height: 80px;
   flex-shrink: 0;
 }
 
-.app-title {
-  font-size: 1.2rem;
+.header-title h2 {
+  font-size: 1.5rem;
   font-weight: 600;
-  letter-spacing: 0.5px;
-  color: var(--text-color);
 }
 
 .user-profile {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  cursor: pointer;
+  gap: 1rem;
+  font-weight: 500;
 }
 
 .avatar {
@@ -155,13 +141,13 @@
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
+  border: 2px solid var(--border-color);
 }
 
 /* Content Area */
 .content-area {
   flex: 1;
   overflow-y: auto;
-  padding: 2.5rem; 
-  background-color: var(--bg-color);
+  padding: 2rem;
 }
 

@@ -1,0 +1,48 @@
+@if (internship) {
+<article class="internship-card">
+  <!-- Card Header -->
+  <header class="card-header">
+    <div class="company-logo">
+      <img [src]="internship.logoUrl" [alt]="internship.company" />
+    </div>
+    <div class="company-info">
+      <h3 class="card-title">{{ internship.title }}</h3>
+      <p class="card-company">{{ internship.company }}</p>
+    </div>
+    <div class="card-action">
+      <a href="#" class="btn-apply">Apply Now</a>
+    </div>
+  </header>
+
+  <!-- Card Body with Tags -->
+  <footer class="card-body">
+    <div
+      class="info-tag"
+      [class.remote]="internship.type === 'Remote'"
+      [class.on-site]="internship.type === 'On-Site'"
+      [class.hybrid]="internship.type === 'Hybrid'"
+    >
+      <i
+        class="fa-solid"
+        [class.fa-computer]="internship.type === 'Remote'"
+        [class.fa-building]="internship.type === 'On-Site'"
+        [class.fa-people-arrows]="internship.type === 'Hybrid'"
+      ></i>
+      <span>{{ internship.type }}</span>
+    </div>
+    <div class="info-tag">
+      <i class="fa-solid fa-location-dot"></i>
+      <span>{{ internship.location }}</span>
+    </div>
+    <div class="info-tag">
+      <i class="fa-solid fa-wallet"></i>
+      <span>{{ internship.stipend }}</span>
+    </div>
+    <div class="info-tag">
+      <i class="fa-solid fa-calendar-alt"></i>
+      <span>{{ internship.duration }}</span>
+    </div>
+  </footer>
+</article>
+} <!-- <-- THIS CLOSING BRACE WAS MISSING -->
+

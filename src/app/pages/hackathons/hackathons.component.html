@@ -1,0 +1,55 @@
+<div class="page-container">
+  <!-- Page Header -->
+  <header class="page-header">
+    <h1 class="page-title">Hackathons & Challenges</h1>
+    <div class="header-controls">
+  <div class="header-right">
+      <div class="search-bar">
+        <i class="fa-solid fa-search"></i>
+        <input
+          type="text"
+          placeholder="Search by title or organizer..."
+          (input)="onSearch($event)"
+        />
+      </div>
+      <button class="btn btn-primary">
+        <i class="fa-solid fa-plus"></i> Add Hackathon
+      </button>
+    </div>
+    </div>
+  </header>
+
+
+  <nav class="filter-bar">
+    <span class="filter-label">Filter by:</span>
+    <button
+      class="filter-btn"
+      [class.active]="activeFilter === 'All'"
+      (click)="selectFilter('All')"
+    >
+      <i class="fa-solid fa-list"></i> All
+    </button>
+    <button
+      class="filter-btn"
+      [class.active]="activeFilter === 'Online'"
+      (click)="selectFilter('Online')"
+    >
+      <i class="fa-solid fa-globe"></i> Online
+    </button>
+    <button
+      class="filter-btn"
+      [class.active]="activeFilter === 'Offline'"
+      (click)="selectFilter('Offline')"
+    >
+      <i class="fa-solid fa-map-pin"></i> Offline
+    </button>
+  </nav>
+
+ 
+  <div class="grid-container">
+    @for (hackathon of filteredHackathons; track hackathon.id) {
+    <app-hackathon-card [hackathon]="hackathon"></app-hackathon-card>
+    }
+  </div>
+</div>
+

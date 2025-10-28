@@ -1,104 +1,107 @@
 .home-container {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem; /* More space between sections */
 }
 
-h1 {
-  font-size: 2.5rem;
+/* Welcome Header */
+.welcome-header {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.welcome-header h1 {
+  font-size: 2.25rem; /* Larger title */
   font-weight: 700;
+  color: var(--text-color);
   margin-bottom: 0.5rem;
 }
 
-.subtitle {
+.welcome-header p {
   font-size: 1.1rem;
-  color: #6c757d;
-  margin-bottom: 2rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto; /* Center the subtitle */
 }
 
-.cta-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-}
-
-/* Reusable Button Styles */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.9rem 1.75rem;
-  font-size: 1rem;
-  font-weight: 500;
-  border-radius: var(--border-radius);
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: var(--shadow-sm);
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-.btn-primary {
-  background: linear-gradient(
-    90deg,
-    var(--primary-color),
-    #5dade2
-  ); /* Gradient */
-  color: #ffffff;
-}
-
-.btn-secondary {
-  background: linear-gradient(
-    90deg,
-    var(--secondary-color),
-    #58d68d
-  ); /* Gradient */
-  color: #ffffff;
-  background-color: #5dade2;
-}
-
-/* Quick Actions Section */
-.quick-actions {
-  text-align: left;
-  background-color: var(--card-bg);
-  padding: 1.5rem 2rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--border-color);
-}
-
-.quick-actions h3 {
-  font-weight: 500;
+/* CTA Section */
+.cta-section h2,
+.featured-section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
   margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--border-color);
-  padding-bottom: 1rem;
 }
 
-.action-cards {
+.cta-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  /* Responsive grid: 4 columns on large screens, 2 on medium, 1 on small */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
 }
 
-.action-card {
+@media (max-width: 1024px) {
+  .cta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .cta-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cta-card {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
-  background-color: var(--bg-color);
-  padding: 1rem;
-  border-radius: var(--border-radius);
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background-color: var(--card-bg);
   border: 1px solid var(--border-color);
-  cursor: pointer;
+  border-radius: var(--border-radius-lg);
   transition: all 0.3s ease;
+  color: var(--text-color);
 }
 
-.action-card:hover {
+.cta-card:hover {
   border-color: var(--primary-color);
-  color: var(--primary-color);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-5px);
+  background-color: var(--primary-color-light); /* Light blue background on hover */
+  color: var(--primary-color-dark); /* Darker blue text on hover */
 }
+
+.cta-card i {
+  font-size: 2.5rem; /* Larger icons */
+  margin-bottom: 1rem;
+  color: var(--primary-color); /* Blue icons */
+}
+
+.cta-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.cta-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.cta-card:hover p {
+   color: var(--primary-color-dark); /* Match heading color on hover */
+}
+
+
+/* Featured Courses Section */
+.featured-grid {
+  display: grid;
+   /* Responsive grid: 3 columns on large screens, 2 on medium, 1 on small */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* We rely on app-course-card's own styling */
+

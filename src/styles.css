@@ -1,48 +1,59 @@
-/* You can add global styles to this file, and also import other style files */
-/* Import a modern font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+/* 1. Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* Define CSS Variables for our color palette */
+/* 2. Define "light theme" CSS variables */
 :root {
   --font-family: 'Inter', sans-serif;
-  --bg-color: #f7f8fc; /* Cleaner light gray */
-  --sidebar-bg: #1f2937; /* Dark charcoal */
+  --bg-color: #f4f7fa; /* Very light gray page background */
+  --bg-light: #f9fafb; /* Lighter background for some elements */
+  --sidebar-bg: #ffffff; /* Clean white sidebar */
   --header-bg: #ffffff;
   --card-bg: #ffffff;
-  --text-color: #111827; /* Darker text */
-  --text-light: #e5e7eb;
-  --text-muted: #6b7280;
-  --primary-color: #4f46e5; /* Modern indigo */
-  --primary-hover: #4338ca;
-  --border-color: #e5e7eb;
+  --text-color: #1f2937; /* Dark charcoal text */
+  --text-muted: #6b7280; /* Lighter gray text */
+  --text-color-inverted: #ffffff; /* Text for on-color buttons */
+
+  /* --- YOUR NEW PRIMARY COLOR --- */
+  --primary-color: #364aa4;
+  --primary-hover: #2a3b8a; /* A slightly darker shade for hover */
+  --primary-color-light: #e0e7ff; /* A light version for tags */
+  --primary-color-dark: #313f8d; /* A darker text for light tags */
+
+  --border-color: #e5e7eb; /* Light border for separation */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1),
     0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --border-radius: 12px;
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+
   --sidebar-width: 260px;
+
+  /* Helper colors for tags */
+  --color-blue-light: #dbeafe;
+  --color-blue-dark: #2563eb;
+  --color-green-light: #d1fae5;
+  --color-green-dark: #059669;
+  --color-orange-light: #fef3c7;
+  --color-orange-dark: #d97706;
 }
 
-/* Global Resets */
+/* 3. Global Resets */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
-html,
-body {
-  height: 100%;
-  width: 100%;
-}
-
+html, body { height: 100%; width: 100%; }
 body {
   font-family: var(--font-family);
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
 }
+a { text-decoration: none; color: inherit; }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}

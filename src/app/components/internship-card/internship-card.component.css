@@ -1,0 +1,130 @@
+.internship-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+  overflow: hidden; /* Ensures clean borders */
+}
+
+.internship-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+/* -- 1. Card Header -- */
+.card-header {
+  display: flex;
+  align-items: flex-start; /* Aligns items to the top */
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.company-logo {
+  flex-shrink: 0;
+}
+
+.company-logo img {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+
+.company-info {
+  flex-grow: 1; /* Takes all available space */
+}
+
+.card-title {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0 0 0.25rem 0;
+}
+
+.card-company {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.card-action {
+  flex-shrink: 0;
+}
+
+/* Apply Button */
+.btn-apply {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--primary-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-apply:hover {
+  background-color: var(--primary-hover);
+  box-shadow: var(--shadow-sm);
+}
+
+/* -- 2. Card Body (Tags) -- */
+.card-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  background-color: var(--bg-color); /* Slight contrast background */
+  border-top: 1px solid var(--border-color);
+}
+
+.info-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  color: var(--text-muted);
+}
+
+.info-tag i {
+  color: var(--primary-color);
+  font-size: 0.9rem;
+}
+
+/* Specific colors for the 'Type' tag */
+.info-tag.remote {
+  color: #2563eb;
+  background-color: #dbeafe;
+  border-color: #bfdbfe;
+}
+.info-tag.remote i {
+  color: #2563eb;
+}
+
+.info-tag.on-site {
+  color: #059669;
+  background-color: #d1fae5;
+  border-color: #a7f3d0;
+}
+.info-tag.on-site i {
+  color: #059669;
+}
+
+.info-tag.hybrid {
+  color: #d97706;
+  background-color: #fef3c7;
+  border-color: #fde68a;
+}
+.info-tag.hybrid i {
+  color: #d97706;
+}

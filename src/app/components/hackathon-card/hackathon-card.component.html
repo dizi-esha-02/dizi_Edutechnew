@@ -1,0 +1,51 @@
+@if (hackathon) {
+<article class="hackathon-card">
+  <!-- 1. Header: Logo, Title, Organizer -->
+  <header class="card-header">
+    <img
+      [src]="hackathon.logoUrl"
+      [alt]="hackathon.organizer"
+      class="organizer-logo"
+    />
+    <div class="header-info">
+      <h3 class="card-title">{{ hackathon.title }}</h3>
+      <p class="card-organizer">{{ hackathon.organizer }}</p>
+    </div>
+  </header>
+
+  <!-- 2. Body: Prize Pool & Info Tags -->
+  <div class="card-body">
+    <!-- Prominent Prize Tag -->
+    <div class="prize-pool">
+      <i class="fa-solid fa-trophy"></i>
+      <span>{{ hackathon.prizePool }}</span>
+    </div>
+
+    <!-- Info Tags -->
+    <div class="info-tags">
+      <span
+        class="tag"
+        [class.tag-online]="hackathon.mode === 'Online'"
+        [class.tag-offline]="hackathon.mode === 'Offline'"
+      >
+        <i
+          class="fa-solid"
+          [class.fa-globe]="hackathon.mode === 'Online'"
+          [class.fa-users]="hackathon.mode === 'Offline'"
+        ></i>
+        {{ hackathon.mode }}
+      </span>
+      <span class="tag tag-deadline">
+        <i class="fa-solid fa-calendar-days"></i>
+        {{ hackathon.deadline }}
+      </span>
+    </div>
+  </div>
+
+  <!-- 3. Footer: Register Button -->
+  <footer class="card-footer">
+    <a href="#" class="btn-register">Register</a>
+  </footer>
+</article>
+}
+

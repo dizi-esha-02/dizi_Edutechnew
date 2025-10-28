@@ -1,0 +1,69 @@
+<div class="page-container">
+  <header class="page-header">
+    <div class="header-left">
+      <h1>Internship Opportunities</h1>
+      <p>Based on your profile and preferences</p>
+    </div>
+    <div class="header-right">
+      <div class="search-bar">
+        <i class="fa-solid fa-search"></i>
+        <input
+         type="text" placeholder="Search by role, company..." 
+         (input)="onSearch($event)"
+         />
+      </div>
+      <button class="btn btn-primary">
+        <i class="fa-solid fa-plus"></i>
+        Post an Internship
+      </button>
+    </div>
+  </header>
+
+  <div class="filter-bar">
+    <button
+      class="filter-btn"
+      [class.active]="activeFilter === 'All'"
+      (click)="selectFilter('All')"
+    >
+      <i class="fa-solid fa-list"></i> All
+    </button>
+    <button
+      class="filter-btn"
+      [class.active]="activeFilter === 'Remote'"
+      (click)="selectFilter('Remote')"
+    >
+      <i class="fa-solid fa-computer"></i> Remote
+    </button>
+    <button
+      class="filter-btn"
+      [class.active]="activeFilter === 'On-Site'"
+      (click)="selectFilter('On-Site')"
+    >
+      <i class="fa-solid fa-building"></i> On-Site
+    </button>
+    <button
+      class="filter-btn"
+      [class.active]="activeFilter === 'Hybrid'"
+      (click)="selectFilter('Hybrid')"
+    >
+      <i class="fa-solid fa-people-arrows"></i> Hybrid
+    </button>
+    
+    <button class="filter-btn"
+        [class.active]="activeFilter === '3 Months'"
+      (click)="selectFilter('3 Months')">
+      <i class="fa-solid fa-clock"></i> 3 Months
+    </button>
+    <button class="filter-btn"
+    [class.active]="activeFilter === '6 Months'"
+      (click)="selectFilter('6 Months')">
+      <i class="fa-solid fa-clock-rotate-left"></i> 6 Months
+    </button>
+  </div>
+
+  <div class="list-container">
+    @for (internship of filteredInternships; track internship.id) {
+    <app-internship-card [internship]="internship"></app-internship-card>
+    }
+  </div>
+</div>
