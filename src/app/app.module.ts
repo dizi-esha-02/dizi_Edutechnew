@@ -13,6 +13,7 @@ import { CoursesComponent } from './pages/courses/courses.component';
 import { ProfilesComponent } from './pages/profiles/profiles.component';
 import { InternshipsComponent } from './pages/internships/internships.component';
 import { HackathonsComponent } from './pages/hackathons/hackathons.component';
+import { LandingpageComponent } from './pages/landingpage/landingpage.component'; // Import LandingpageComponent
 
 // --- Components ---
 // Double-check these paths match your actual folder structure
@@ -31,6 +32,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     ProfilesComponent,
     InternshipsComponent, // Ensure it's declared
     HackathonsComponent, // Ensure it's declared
+    LandingpageComponent, // Declare LandingpageComponent
     // --- Components ---
     CourseCardComponent, // Ensure it's declared
     ProfileCardComponent, // Ensure it's declared
@@ -42,7 +44,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     BrowserModule,
     AppRoutingModule, // This imports RouterModule configured with routes
     CommonModule,
-    // RouterModule, // <-- REMOVE RouterModule from here if AppRoutingModule is imported
+    RouterModule, // <-- ADD RouterModule HERE
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,16 +1,16 @@
 .app-container {
   display: flex;
   height: 100vh;
-  width: 100vw;
+  width: 100%; 
   overflow: hidden;
-  background-color: var(--bg-color);
+  background-color: #f8f9fa; 
 }
 
 /* 1. New Light Sidebar Styling */
 .sidebar {
-  width: var(--sidebar-width);
-  background-color: var(--sidebar-bg);
-  border-right: 1px solid var(--border-color);
+  width: 250px; 
+  background-color: #ffffff; 
+  border-right: 1px solid #e9ecef; 
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
@@ -29,19 +29,19 @@
 
 .logo-icon {
   font-size: 2.5rem;
-  color: var(--primary-color);
+  color: #0d6efd; 
 }
 
 .brand-title {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--text-color);
+  color: #212529;
   margin-top: 0.75rem;
 }
 
 .brand-subtitle {
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: #6c757d;
 }
 
 /* Navigation Links */
@@ -49,7 +49,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  flex-grow: 1; /* Pushes footer down */
+  flex-grow: 1; 
 }
 
 .sidebar-nav li a {
@@ -57,8 +57,8 @@
   align-items: center;
   gap: 1rem;
   padding: 0.9rem 1.25rem;
-  border-radius: var(--border-radius);
-  color: var(--text-muted);
+  border-radius: 0.375rem; 
+  color: #6c757d; 
   font-weight: 500;
   transition: all 0.3s ease;
   margin-bottom: 0.5rem;
@@ -72,21 +72,21 @@
 
 /* New "Pill" Active Style */
 .sidebar-nav li a:hover {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: #f8f9fa; 
+  color: #212529;
 }
 
 .sidebar-nav li a.active {
-  background-color: var(--primary-color);
+  background-color: #0d6efd; 
   color: #ffffff;
   font-weight: 600;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075); 
 }
 
 /* Sidebar Footer */
 .sidebar-footer {
   padding-top: 1rem;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid #e9ecef;
 }
 
 .sidebar-footer a {
@@ -94,14 +94,14 @@
   align-items: center;
   gap: 1rem;
   padding: 0.9rem 1.25rem;
-  border-radius: var(--border-radius);
-  color: var(--text-muted);
+  border-radius: 0.375rem; 
+  color: #6c757d; 
   font-weight: 500;
   transition: all 0.3s ease;
 }
 .sidebar-footer a:hover {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: #f8f9fa; 
+  color: #212529; 
 }
 
 /* 2. Main Content Area */
@@ -118,16 +118,42 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
-  background-color: var(--header-bg);
-  border-bottom: 1px solid var(--border-color);
+  background-color: #ffffff; 
+  border-bottom: 1px solid #e9ecef; 
   height: 80px;
   flex-shrink: 0;
+}
+
+/* --- UPDATED HEADER TITLE --- */
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; 
 }
 
 .header-title h2 {
   font-size: 1.5rem;
   font-weight: 600;
+  margin: 0; 
 }
+
+/* --- NEW BUTTON STYLE --- */
+.landing-button {
+  background-color: #0d6efd; 
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem; 
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.landing-button:hover {
+  background-color: #0b5ed7; 
+}
+
 
 .user-profile {
   display: flex;
@@ -141,13 +167,14 @@
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--border-color);
+  border: 2px solid #e9ecef; 
 }
 
 /* Content Area */
 .content-area {
   flex: 1;
   overflow-y: auto;
-  padding: 2rem;
+  overflow-x: hidden; 
+  padding: 0; 
 }
 

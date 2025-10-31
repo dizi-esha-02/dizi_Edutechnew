@@ -1,0 +1,592 @@
+<header class="app-header" [class.scrolled]="isScrolled">
+  <div class="container header-container">
+    <div class="header-logo">
+      <a href="#">
+        <img src="/assets/logo.png" alt="DiziEduTech Logo" />
+      </a>
+    </div>
+    <nav class="header-nav">
+      <ul>
+        <li><a href="#courses" (click)="scrollToSection('courses')" [class.active]="activeSection === 'courses'">Courses</a></li>
+        <li><a href="#about" (click)="scrollToSection('about')" [class.active]="activeSection === 'about'">About</a></li>
+        <li><a href="#pricing" (click)="scrollToSection('pricing')" [class.active]="activeSection === 'pricing'">Pricing</a></li>
+        <li><a href="#testimonials" (click)="scrollToSection('testimonials')" [class.active]="activeSection === 'testimonials'">Success Stories</a></li>
+        <li><a href="#contact" (click)="scrollToSection('contact')" [class.active]="activeSection === 'contact'">Contact</a></li>
+        <li><a href="tel:+919261297517"><i class="fa-solid fa-phone"></i> +91 (926) 129-7517</a></li>
+      </ul>
+    </nav>
+    <div class="header-action">
+      <a href="#" class="btn btn-login"><i class="fa-solid fa-right-to-bracket"></i> Login/Register</a>
+      <a href="#pricing" class="btn btn-primary" (click)="scrollToSection('pricing')">Get Started</a>
+    </div>
+  </div>
+</header>
+
+<main class="homepage-content">
+
+  <section id="home" class="hero-section" #section>
+    <div class="hero-background">
+      <div class="hero-orbit orbit-1"></div>
+      <div class="hero-orbit orbit-2"></div>
+      <div class="hero-orbit orbit-3"></div>
+    </div>
+    
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-text">🚀 Future-Ready Education</span>
+        </div>
+        
+        <h1 class="hero-headline">
+          <span class="headline-line">Master <span class="gradient-text">In-Demand Tech Skills</span></span>
+          <span class="headline-line">For The Digital Economy</span>
+        </h1>
+        
+        <p class="hero-description">
+          Join 15,000+ learners in our immersive programs designed by industry leaders. 
+          Gain practical skills, build real projects, and launch your tech career.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#courses" class="btn btn-primary btn-hero" (click)="scrollToSection('courses')">
+            <span>Explore Programs</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn btn-outline btn-hero" (click)="scrollToSection('contact')">
+            <i class="fa-solid fa-play"></i>
+            <span>Watch Demo</span>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item" *ngFor="let stat of stats | keyvalue">
+            <div class="stat-value">{{stat.value}}</div>
+            <div class="stat-label">{{stat.key | titlecase}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="floating-cards">
+          <div class="floating-card card-1" style="--delay: 0s">
+            <i class="fa-solid fa-brain"></i>
+            <span>AI & ML</span>
+          </div>
+          <div class="floating-card card-2" style="--delay: 1s">
+            <i class="fa-solid fa-cloud"></i>
+            <span>Cloud</span>
+          </div>
+          <div class="floating-card card-3" style="--delay: 2s">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Security</span>
+          </div>
+        </div>
+        
+        <div class="main-visual">
+          <div class="tech-sphere"></div>
+          <div class="connecting-lines">
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+            <div class="line line-3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<br>
+
+  <section id="courses" class="courses-section" #section>
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Cutting-Edge Curriculum</div>
+        <h2 class="section-title">Future-Proof Your Career</h2>
+        <p class="section-description">
+          Our programs are designed in collaboration with industry leaders to ensure 
+          you learn the most relevant and in-demand skills.
+        </p>
+      </div>
+
+      <div class="courses-grid">
+        <div class="course-card" 
+             *ngFor="let course of displayedCourses; let i = index"
+             [style.--accent-color]="course.color"
+             (mouseenter)="onCourseHover(course)">
+          <div class="course-header">
+            <div class="course-icon" [style.background]="course.color">
+              <i [class]="course.icon"></i>
+            </div>
+            <div class="course-meta">
+              <div class="course-level">{{course.level}}</div>
+              <div class="course-rating">
+                <i class="fa-solid fa-star"></i>
+                {{course.rating}}
+              </div>
+            </div>
+          </div>
+          
+          <h3 class="course-title">{{course.title}}</h3>
+          <p class="course-description">{{course.description}}</p>
+          
+          <div class="course-features">
+            <div class="feature">
+              <i class="fa-solid fa-clock"></i>
+              {{course.duration}}
+            </div>
+            <div class="feature">
+              <i class="fa-solid fa-diagram-project"></i>
+              {{course.projects}} Projects
+            </div>
+          </div>
+
+          <div class="course-actions">
+            <a href="#" class="btn btn-outline">Explore</a>
+            <a href="#" class="btn-link">
+              <span>Details</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="course-hover-effect"></div>
+        </div>
+      </div>
+
+      <div class="section-cta">
+        <button (click)="toggleShowAllCourses()" class="btn btn-primary btn-large">
+          <span *ngIf="!showAllCourses">View All Programs</span>
+          <span *ngIf="showAllCourses">Show Less Programs</span>
+          <i class="fa-solid" [class.fa-chevron-down]="!showAllCourses" [class.fa-chevron-up]="showAllCourses"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+<br>
+  <section id="about" class="about-section" #section>
+    <div class="container about-container">
+      <div class="about-content">
+        <div class="section-header">
+          <div class="section-badge">Innovation Driven</div>
+          <h2 class="section-title">Education Meets<br>Industry Excellence</h2>
+          <p class="section-description">
+            We bridge the gap between academic learning and real-world application, 
+            preparing you for the challenges of tomorrow's tech landscape.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card" *ngFor="let feature of aboutUs.features">
+            <div class="feature-icon">
+              <i [class]="feature.icon"></i>
+            </div>
+            <div class="feature-content">
+              <h4>{{feature.title}}</h4>
+              <p>{{feature.description}}</p>
+            </div>
+            <div class="feature-arrow">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-number">15K+</div>
+            <div class="stat-text">Active Learners</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">94%</div>
+            <div class="stat-text">Success Rate</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">50+</div>
+            <div class="stat-text">Industry Experts</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-visual">
+        <div class="visual-container">
+          <div class="main-image">
+            <div class="image-placeholder">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+          </div>
+          <div class="floating-elements">
+            <div class="element element-1">
+              <i class="fa-solid fa-rocket"></i>
+              <span>Fast Track</span>
+            </div>
+            <div class="element element-2">
+              <i class="fa-solid fa-award"></i>
+              <span>Certified</span>
+            </div>
+            <div class="element element-3">
+              <i class="fa-solid fa-briefcase"></i>
+              <span>Career Ready</span>
+            </div>
+          </div>
+          <div class="animation-orbit"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+<br>
+  <section id="testimonials" class="testimonials-section" #section>
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Success Stories</div>
+        <h2 class="section-title">Transformative Learning Experiences</h2>
+        <p class="section-description">
+          Hear from our alumni who have transformed their careers through our programs.
+        </p>
+      </div>
+
+      <div class="testimonials-container">
+        <div class="testimonials-track" [style.transform]="'translateX(-' + (currentTestimonial * 100) + '%)'">
+          <div class="testimonial-slide" *ngFor="let testimonial of testimonials">
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <div class="quote-icon">"</div>
+                <p class="testimonial-text">{{testimonial.text}}</p>
+                <div class="testimonial-rating">
+                  <i class="fa-solid fa-star" *ngFor="let star of [1,2,3,4,5]"></i>
+                </div>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-image">
+                  <div class="image-placeholder">
+                    <i class="fa-solid fa-user"></i>
+                  </div>
+                </div>
+                <div class="author-info">
+                  <h4>{{testimonial.name}}</h4>
+                  <p>{{testimonial.role}}</p>
+                  <span class="course-tag">{{testimonial.course}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonials-controls">
+          <button class="control-btn prev" (click)="prevTestimonial()">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <div class="testimonials-dots">
+            <button 
+              *ngFor="let dot of testimonials; let i = index" 
+              class="dot" 
+              [class.active]="i === currentTestimonial"
+              (click)="currentTestimonial = i">
+            </button>
+          </div>
+          <button class="control-btn next" (click)="nextTestimonial()">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+<br>
+  <section class="why-section" #section>
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-content">
+          <div class="section-header">
+            <div class="section-badge">Why Choose Us</div>
+            <h2 class="section-title">The DiziEduTech<br>Advantage</h2>
+            <p class="section-description">
+              Our unique approach to tech education sets us apart and ensures your success.
+            </p>
+          </div>
+
+          <div class="why-features">
+            <div class="why-feature" *ngFor="let feature of whyDiziEduTech.features">
+              <div class="feature-icon-wrapper">
+                <div class="feature-icon">
+                  <i [class]="feature.icon"></i>
+                </div>
+              </div>
+              <div class="feature-details">
+                <h3>{{feature.title}}</h3>
+                <p>{{feature.description}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-stats">
+          <div class="stats-grid">
+            <div class="stat-item" *ngFor="let stat of whyDiziEduTech.stats">
+              <div class="stat-icon">
+                <i [class]="stat.icon"></i>
+              </div>
+              <div class="stat-main">
+                <div class="stat-value">{{stat.value}}</div>
+                <div class="stat-label">{{stat.label}}</div>
+                <div class="stat-description">{{stat.description}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="pricing-section" #section>
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Flexible Plans</div>
+        <h2 class="section-title">Choose Your Learning Path</h2>
+        <p class="section-description">
+          Select the plan that best fits your goals and learning style.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card" 
+             *ngFor="let plan of benefitPlans" 
+             [class.highlighted]="plan.highlight">
+          <div class="plan-badge" *ngIf="plan.highlight">Most Popular</div>
+          
+          <div class="plan-header">
+            <h3 class="plan-title">{{plan.title}}</h3>
+            <p class="plan-subtitle">{{plan.subtitle}}</p>
+            
+            <div class="plan-price">
+              <span class="price">{{plan.price}}</span>
+              <span class="duration">{{plan.duration}}</span>
+            </div>
+          </div>
+
+          <div class="plan-features">
+            <div class="feature-item" *ngFor="let feature of plan.features">
+              <div class="feature-check" [class.included]="feature.included">
+                <i class="fa-solid" [class.fa-check]="feature.included" [class.fa-xmark]="!feature.included"></i>
+              </div>
+              <span class="feature-text" [class.excluded]="!feature.included">
+                {{feature.text}}
+              </span>
+              <div class="feature-tooltip" *ngIf="feature.tooltip">
+                <i class="fa-solid fa-info-circle"></i>
+                <div class="tooltip-text">{{feature.tooltip}}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="plan-actions">
+            <a href="#contact" class="btn" 
+               [class.btn-primary]="plan.highlight" 
+               [class.btn-outline]="!plan.highlight"
+               (click)="scrollToSection('contact')">
+              {{plan.buttonText}}
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing-footer">
+        <p>All plans include 7-day money-back guarantee • Flexible payment options available</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="partners-section" #section>
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Industry Recognition</div>
+        <h2 class="section-title">Trusted by Industry Leaders</h2>
+        <p class="section-description">
+          We partner with top companies to ensure our curriculum meets industry standards.
+        </p> 
+      </div>
+
+      <div class="partners-container">
+        <div class="partners-track" [style.transform]="'translateX(-' + (currentPartner * 100) + '%)'">
+          <div class="partner-slide" *ngFor="let partner of partners">
+            <div class="partner-card">
+              <img [src]="partner.logo" [alt]="partner.name" class="partner-logo-img">
+              <h3>{{ partner.name }}</h3>
+              <p>{{ partner.details }}</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="partners-controls">
+          <button class="control-btn prev" (click)="prevPartner()">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <div class="partners-dots">
+            <button 
+              *ngFor="let dot of partners; let i = index" 
+              class="dot" 
+              [class.active]="i === currentPartner"
+              (click)="currentPartner = i">
+            </button>
+          </div>
+          <button class="control-btn next" (click)="nextPartner()">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section" #section>
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="section-header">
+            <div class="section-badge">Get Started</div>
+            <h2 class="section-title">Start Your Tech Journey Today</h2>
+            <p class="section-description">
+              Ready to transform your career? Speak with our learning advisors to find the perfect program.
+            </p>
+          </div>
+
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div class="contact-content">
+                <h4>Call Us</h4>
+                <a href="tel:+917207977729">+91 7207977729</a>
+                <a href="tel:+919391297517">+91 9391297517</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="contact-content">
+                <h4>Email Us</h4>
+                <a href="mailto:info&#64;diziedutech.com">info&#64;diziedutech.com</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="contact-content">
+                <h4>Visit Us</h4>
+                <p>Hyderabad & Visakhapatnam</p>
+              </div>
+            </div>
+          </div>
+</div>
+        <div class="contact-form-wrapper">
+          <form class="contact-form" (ngSubmit)="submitContactForm()">
+            <div class="form-header">
+              <h3>Free Career Consultation</h3>
+              <p>Get personalized guidance on your learning path</p>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <input type="text" id="firstName" required>
+                <label for="firstName">First Name</label>
+              </div>
+              
+              <div class="form-group">
+                <input type="text" id="lastName" required>
+                <label for="lastName">Last Name</label>
+              </div>
+              
+              <div class="form-group">
+                <input type="email" id="email" required>
+                <label for="email">Email Address</label>
+              </div>
+              
+              <div class="form-group">
+                <input type="tel" id="phone" required>
+                <label for="phone">Phone Number</label>
+              </div>
+              
+              <div class="form-group full-width">
+                <select id="interest" required>
+                  <option value="" disabled selected></option>
+                  <option value="ai-ml">AI & Machine Learning</option>
+                  <option value="cloud">Cloud Computing</option>
+                  <option value="cybersecurity">Cyber Security</option>
+                  <option value="web-dev">Web Development</option>
+                  <option value="data-science">Data Science</option>
+                  <option value="mobile-dev">Mobile Development</option>
+                </select>
+                <label for="interest">Program Interest</label>
+              </div>
+              
+              <div class="form-group full-width">
+                <textarea id="message" rows="4" required></textarea>
+                <label for="message">Your Goals & Questions</label>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-submit">
+              <span>Get Free Consultation</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="app-footer">
+  <div class="container footer-container">
+    <div class="footer-col footer-about">
+      <img src="/assets/logo.png" alt="DiziEduTech Logo" class="footer-logo" />
+      <p>Dizi Edutech offers the flexibility to study from anywhere, anytime with industry-relevant curriculum and expert mentorship.</p>
+      <div class="social-links">
+        <a class="btn btn-outline" href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a class="btn btn-outline" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a class="btn btn-outline" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a class="btn btn-outline" href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+    
+    <div class="footer-col footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#courses" (click)="scrollToSection('courses')">Our Courses</a></li>
+        <li><a href="#about" (click)="scrollToSection('about')">About Us</a></li>
+        <li><a href="#testimonials" (click)="scrollToSection('testimonials')">Success Stories</a></li>
+        <li><a href="#contact" (click)="scrollToSection('contact')">Contact</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-col footer-links">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Refund Policy</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-col footer-contact">
+      <h4>Contact Info</h4>
+      <address>
+        <p><i class="fa-solid fa-location-dot"></i> 22 A, Tourism Plaza Begumpet<br>Hyderabad, Telangana 500016</p>
+        <p><i class="fa-solid fa-phone"></i> <a href="tel:+917207977729">+91 7207977729</a></p>
+        <hr>
+        <p><i class="fa-solid fa-location-dot"></i> Andhra University Incubation Center, AU North Campus,<br>Visakhapatnam, Andhra Pradesh 530003</p>
+        <p><i class="fa-solid fa-phone"></i> <a href="tel:+919391297517">+91 9391297517</a></p>
+      </address>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <div class="container">
+      <p>&copy; {{ currentYear }} DiziEduTech. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-to-top" (click)="scrollToTop()" [class.show]="showScrollButton">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>

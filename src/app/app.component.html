@@ -1,76 +1,9 @@
-<div class="app-container">
-  <!-- Sidebar Navigation -->
-  <nav class="sidebar">
-    <!-- Brand/Logo Area -->
-    <div class="sidebar-brand">
-      <i class="fa-solid fa-graduation-cap logo-icon"></i> <!-- Using light theme icon -->
-      <span class="brand-title">DiziEduTech</span>
-      <span class="brand-subtitle">Platform</span> <!-- Updated subtitle -->
-    </div>
-
-    <!-- Main Navigation -->
-    <ul class="sidebar-nav">
-      <!-- Original Links -->
-      <li>
-        <a routerLink="/home" routerLinkActive="active">
-          <i class="fa-solid fa-house-chimney"></i><span>Home</span>
-        </a>
-      </li>
-      <li>
-        <a routerLink="/courses" routerLinkActive="active">
-          <i class="fa-solid fa-book-open"></i><span>Courses</span>
-        </a>
-      </li>
-      <li>
-        <a routerLink="/profiles" routerLinkActive="active">
-          <i class="fa-solid fa-users"></i><span>Profiles</span>
-        </a>
-      </li>
-
-      <!-- Divider (Optional) -->
-      <li class="nav-divider"></li>
-
-      <!-- --- NEW LINKS --- -->
-      <li>
-        <a routerLink="/internships" routerLinkActive="active">
-          <i class="fa-solid fa-briefcase"></i><span>Internships</span>
-        </a>
-      </li>
-      <li>
-        <a routerLink="/hackathons" routerLinkActive="active">
-          <i class="fa-solid fa-laptop-code"></i><span>Hackathons</span>
-        </a>
-      </li>
-    </ul>
-
-    <!-- Sidebar Footer -->
-    <div class="sidebar-footer">
-      <a href="#">
-        <i class="fa-solid fa-right-from-bracket"></i><span>Log Out</span>
-      </a>
-    </div>
-  </nav>
-
-  <!-- Main Content Area -->
-  <div class="main-content">
-    <!-- Top Header -->
-    <header class="header">
-      <div class="header-title">
-        <!-- We can make this dynamic later if needed -->
-        <h2>Dashboard</h2>
-      </div>
-      <div class="user-profile">
-        <span>Surya</span>
-        <img
-          src="https://i.pravatar.cc/40?img=68"
-          alt="User Avatar"
-          class="avatar"
-        />
-      </div>
-    </header>
-
+<div>
+     <div>
     <!-- Page content renders here -->
     <main class="content-area">
+      
+      
       <router-outlet></router-outlet>
     </main>
   </div>
